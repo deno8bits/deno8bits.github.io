@@ -1,0 +1,34 @@
+---
+interface Props {
+  name: string; // Name of the social media
+  link: string; // Link to the site/profile
+  display?: string; // What to display the link as
+}
+
+const { name = "Globe", link, display = link } = Astro.props;
+const iconName = `cib:${name}`
+
+import { Icon } from 'astro-icon';
+---
+
+<style>
+    li {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+    }
+
+    a {
+        height: fit-content;
+        margin: auto auto;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    svg {
+        fill: white;
+        max-height: 2.5rem;
+    }
+</style>
+
+<li><Icon name={name} /><a href={link}>{display}</a></li>
