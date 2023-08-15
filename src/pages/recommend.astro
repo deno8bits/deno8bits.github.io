@@ -4,6 +4,14 @@ import RecommendItem from '../components/recommend/RecommendItem.astro'
 ---
 
 <style>
+    body {
+        background-color: #404E5C;
+        color: white;
+    }
+
+    body svg {
+        fill: white;
+    }
     div#header {
         display: flex;
         flex-direction: column;
@@ -38,6 +46,7 @@ import RecommendItem from '../components/recommend/RecommendItem.astro'
         <h2>Podcasts</h2>
         <RecommendItem 
             iconURL='https://upload.wikimedia.org/wikipedia/en/f/fb/Midst%2C_2023_logo.jpg'
+            iconAvgColor='#5c4052'
             description="Really nice podcast with a pretty good story and excellent narrators."
             name="Midst"
             links={[{name: 'globe', url: 'https://midst.co'},

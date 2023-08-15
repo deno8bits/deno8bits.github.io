@@ -3,16 +3,16 @@ import '../GlobalCSS.astro'
 import LinkList from './LinkList.astro'
 interface Props {
     iconURL?: string,
+    iconAvgColor: string
     name?: string,
     description?: string
-    rating?: int,
     links?,
 };
 
-const { iconURL = '', description,name = '', rating = '', links } = Astro.props;
+const { iconURL = '', iconAvgColor,description,name = '', links } = Astro.props;
 ---
 
-<style>
+<style define:vars={{iconAvgColor}}>
     div {
         margin: 0
     }
@@ -22,25 +22,32 @@ const { iconURL = '', description,name = '', rating = '', links } = Astro.props;
         justify-content: flex-start;
         align-content: center;
         width: 98%;
-        height: 100%
+        height: 100%;
+        box-shadow: 8px 20px 50px 12px rgba(0, 0, 0, 0.247);
+        border-radius: 1rem;
+        background-color: var(--iconAvgColor);
+        overflow: hidden;
     }
 
     div img {
-        height: 7rem;
-        border-radius: 0.3rem
+        height: 100%;
+        border-radius: 0.3rem;
+        max-height: 7.5rem;
     }
 
     div h3 {
-        margin-top: 0;
-        margin-bottom: 0.6rem
+        margin-top: 0.2rem;
+        margin-bottom: 0.6rem;
+        display: inline-block;
     }
 
     div.recommendItem>div{
         margin-left: 0.5rem
     }
 
-    div p {
-        font-size: 0.8rem
+    p.recommend-text {
+        font-size: 0.8rem;
+        margin-top: 0;
     }
 
 </style>
@@ -49,13 +56,8 @@ const { iconURL = '', description,name = '', rating = '', links } = Astro.props;
 <div class="recommendItem">
     <img src={iconURL}/>
     <div>
-        <div>
-            <h3 class="font-regular">{name}</h3>
-            <div class='rating'></div>
-        <div>
-        <p>{description}</p>
+        <h3 class="font-regular">{name}</h3>
+        <p class="recommend-text">{description}</p>
         <LinkList links={links} />
     </div>
-    
-
 </div>
