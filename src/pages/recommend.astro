@@ -1,0 +1,51 @@
+---
+import '../components/GlobalCSS.astro'
+import RecommendItem from '../components/recommend/RecommendItem.astro'
+---
+
+<style>
+    div#header {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        text-align: center;
+    }
+    
+    div.recommendSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content={Astro.generator} />
+    <title>Deno8bits Blog - Recommendations</title>
+</head>
+<body>
+    <div id="header">
+        <h1>Recommendations</h1>
+        <div id="disclaimer">
+            <h3>Disclaimer</h3>
+            <p class="font-light">I'm not being paid for anything below these are just things I have watched/played/listened that I really like and wanted to share</p>
+        </div>
+    </div>
+    <div id="games" class="recommendSection">
+        <h2>Podcasts</h2>
+        <RecommendItem 
+            iconURL='https://upload.wikimedia.org/wikipedia/en/f/fb/Midst%2C_2023_logo.jpg'
+            description="Really nice podcast with a pretty good story and excellent narrators."
+            name="Midst"
+            links={[{name: 'globe', url: 'https://midst.co'},
+                    {name: 'spotify', url: 'https://open.spotify.com/show/5tYIp4RxdREP8HisEuNaUv?si=a35ab04c3cb1483a'},
+                    {name: 'google-podcasts', url: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zaW1wbGVjYXN0LmNvbS9hVXhhM0VBQQ'},
+                    {name: 'apple-podcasts', url: 'https://podcasts.apple.com/us/podcast/midst/id1681168186'}
+                ]}
+            />
+    </div>
+</body>
+</html>

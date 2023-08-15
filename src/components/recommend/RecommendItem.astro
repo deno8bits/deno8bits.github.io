@@ -1,0 +1,61 @@
+---
+import '../GlobalCSS.astro'
+import LinkList from './LinkList.astro'
+interface Props {
+    iconURL?: string,
+    name?: string,
+    description?: string
+    rating?: int,
+    links?,
+};
+
+const { iconURL = '', description,name = '', rating = '', links } = Astro.props;
+---
+
+<style>
+    div {
+        margin: 0
+    }
+    div.recommendItem {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: center;
+        width: 98%;
+        height: 100%
+    }
+
+    div img {
+        height: 7rem;
+        border-radius: 0.3rem
+    }
+
+    div h3 {
+        margin-top: 0;
+        margin-bottom: 0.6rem
+    }
+
+    div.recommendItem>div{
+        margin-left: 0.5rem
+    }
+
+    div p {
+        font-size: 0.8rem
+    }
+
+</style>
+
+
+<div class="recommendItem">
+    <img src={iconURL}/>
+    <div>
+        <div>
+            <h3 class="font-regular">{name}</h3>
+            <div class='rating'></div>
+        <div>
+        <p>{description}</p>
+        <LinkList links={links} />
+    </div>
+    
+
+</div>
